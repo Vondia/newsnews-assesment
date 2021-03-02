@@ -6,7 +6,7 @@ export default function LogoHome() {
     <div>
       <Link to={"/"}>
         <h2>
-          new <bold>NEWS</bold>()
+          new <strong>NEWS</strong>()
         </h2>
       </Link>
     </div>

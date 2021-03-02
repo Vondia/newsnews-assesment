@@ -1,0 +1,20 @@
+@media screen and (max-width: 767px) {
+  .ArticleCard {
+    transition: transform 0.2s ease;
+    margin: 5px auto;
+    border-color: mat-color(black);
+  }
+  .ArticleCard:hover {
+    transform: scale(1.02) translate(0, -3px);
+  }
+}
+@media screen and (min-width: 768px) {
+  .ArticleCard {
+    transition: transform 0.2s ease;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  .ArticleCard:hover {
+    transform: scale(1.02) translate(0, -3px);
+  }
+}
