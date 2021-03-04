@@ -10,6 +10,7 @@ function App() {
   return (
     <div className="App">
       <Switch>
+        <Route path="/ArticlePage/:id" component={ArticlePage}></Route>
         <Route
           path="/searchArticlesPage/:searchtext?"
           component={SearchArticlesPage}
@@ -18,7 +19,6 @@ function App() {
           path="/ArticleCategoryPage/:categoryId"
           component={ArticleCategoryPage}
         ></Route>
-        <Route path="/ArticlePage/:id" component={ArticlePage}></Route>
         <Route path="/" component={HomePage} exact></Route>
       </Switch>
     </div>

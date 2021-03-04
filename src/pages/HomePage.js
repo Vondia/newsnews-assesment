@@ -17,11 +17,10 @@ export default function HomePage() {
         return article.unixTimeStamp === 1589068800;
       });
       setArticleCard([timeStampLatest]);
+      console.log(data);
     }
     fetchData();
   }, []);
-
-  console.log(articleCard);
 
   // function compare_unixTimeStamp(article_a, article_b) {
   //   return article_b.compare_unixTimeStamp - article_a.compare_unixTimeStamp;
@@ -44,13 +43,17 @@ export default function HomePage() {
         {!articleCard ? (
           <h4>Loading</h4>
         ) : (
-          articleCard.map((Article, index) => (
+          articleCard.map((article, index) => (
             <ArticleCard
               key={index}
-              title={Article.title}
-              author={Article.author}
-              categoryId={Article.categoryId}
-              img={Article.imgUrl}
+              id={article.id}
+              props={article}
+              // key={index}
+              // id={article.id}
+              // title={article.title}
+              // author={article.author}
+              // categoryId={article.categoryId}
+              // img={article.imgUrl}
             />
           ))
         )}

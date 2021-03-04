@@ -77,6 +77,7 @@ export default function SearchArticlesPage() {
               articleCard.map((Article, index) => (
                 <ArticleCard
                   key={index}
+                  id={Article.id}
                   title={Article.title}
                   author={Article.author}
                   categoryId={Article.categoryId}
