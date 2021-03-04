@@ -8,7 +8,12 @@ export default function ArticleCard(props) {
       <div>
         <h3>{props.title}</h3>
         <p>{props.author}</p>
-        <p>Category: {props.categoryId}</p>
+        <p>
+          Category:{" "}
+          <Link to={`/ArticleCategoryPage/${props.categoryId}`}>
+            <strong>{props.categoryId}</strong>
+          </Link>
+        </p>
       </div>
       <Link to={`/ArticlePage/${props.Id}`}>
         <button className="ArticleCard-body">Read this article</button>

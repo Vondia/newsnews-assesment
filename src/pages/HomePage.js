@@ -12,7 +12,11 @@ export default function HomePage() {
       const response = await axios.get(
         "https://my-json-server.typicode.com/Codaisseur/articles-comments-data/articles"
       );
-      setArticleCard(response.data);
+      const data = response.data;
+      const timeStampLatest = data.find((article) => {
+        return article.unixTimeStamp === 1589068800;
+      });
+      setArticleCard([timeStampLatest]);
     }
     fetchData();
   }, []);
@@ -20,15 +24,13 @@ export default function HomePage() {
   console.log(articleCard);
 
   // function compare_unixTimeStamp(article_a, article_b) {
-  //   return article_a.compare_unixTimeStamp.localecompare(
-  //     article_b.compare_unixTimeStamp
-  //   );
+  //   return article_b.compare_unixTimeStamp - article_a.compare_unixTimeStamp;
   // }
-  // // const compareFunction = sort_by === "unixTimeStamp" ? compare_unixTimeStamp : compare_name;
 
-  // const articlesSorted = [...articleCard].sort(compare_unixTimeStamp);
+  const articlesSorted = [...articleCard];
 
-  // console.log(articlesSorted);
+  const unixTimeStampOutput = articlesSorted.map((a) => a.unixTimeStamp);
+  console.log(unixTimeStampOutput);
 
   return (
     <div>
@@ -46,13 +48,14 @@ export default function HomePage() {
             <ArticleCard
               key={index}
               title={Article.title}
-              lastName={Article.author}
+              author={Article.author}
               categoryId={Article.categoryId}
               // img={Article.imgUrl}
             />
           ))
         )}
       </div>
+      <br></br>
       <div>
         <Link to={"/SearchArticles"}>
           <button>Search Articles</button>
