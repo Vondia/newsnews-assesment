@@ -15,10 +15,10 @@ export default function ArticleCard(props) {
           </Link>
         </p>
       </div>
-      <Link to={`/ArticlePage/${props.Id}`}>
+      <Link to={`/ArticlePage/${props.id}`}>
         <button className="ArticleCard-body">Read this article</button>
       </Link>
-      {/* <img src={props.imgUrl} alt="Nieuws plaatje" /> */}
+      <img src={props.imgUrl} alt="Nieuws plaatje" />
     </div>
   );
 }

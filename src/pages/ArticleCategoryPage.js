@@ -1,14 +1,15 @@
 import { React, useEffect, useState } from "react";
 import LogoHome from "../components/LogoHome";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
-// import ArticleCard from "../components/ArticleCard";
+import ArticleCard from "../components/ArticleCard";
 import CommentSection from "../components/CommentSection";
 
 export default function ArticleCategoryPage() {
   const { categoryId } = useParams();
   const [category, setCategory] = useState([]);
   const [comments, setComments] = useState(["All"]);
+  console.log(categoryId);
 
   useEffect(() => {
     async function fetchData() {
@@ -54,21 +55,24 @@ export default function ArticleCategoryPage() {
       <div>
         <LogoHome />
       </div>
-      <h2>{category.categoryId} articles</h2>
+      <h2>{categoryId} articles</h2>
       <div>
         {!category ? (
           <h4>Loading</h4>
         ) : (
-          category.map((category) => {
-            console.log(categoryId);
-            return (
-              <div>
-                <Link to={`/ArticleCategoryPage/${categoryId}`}>
-                  <h3>{category.categoryId} articles</h3>
-                </Link>
-              </div>
-            );
-          })
+          <div>
+            {category.map((category) => {
+              return (
+                <ArticleCard
+                  key={category.id}
+                  title={category.title}
+                  author={category.author}
+                  id={category.id}
+                  categoryId={category.categoryId}
+                />
+              );
+            })}
+          </div>
         )}
       </div>
       <CommentSection onSubmitForm={onSubmitForm} />
