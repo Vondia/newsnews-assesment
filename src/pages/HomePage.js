@@ -50,14 +50,14 @@ export default function HomePage() {
               title={Article.title}
               author={Article.author}
               categoryId={Article.categoryId}
-              // img={Article.imgUrl}
+              img={Article.imgUrl}
             />
           ))
         )}
       </div>
       <br></br>
       <div>
-        <Link to={"/SearchArticles"}>
+        <Link to={"/SearchArticlesPage"}>
           <button>Search Articles</button>
         </Link>
       </div>

@@ -69,11 +69,11 @@ export default function ArticlePage() {
         {!comments ? (
           <h5>Loading</h5>
         ) : (
-          comments.map((comments) => {
+          comments.map((comments, index) => {
             return (
-              <div>
-                <p>name:{comments.name}</p>
-                <p>comment:{comments.comment}</p>
+              <div key={index}>
+                <p>name: {comments.name}</p>
+                <p>comment: {comments.comment}</p>
               </div>
             );
           })

@@ -2,17 +2,18 @@ import { React, useState, useEffect } from "react";
 import LogoHome from "../components/LogoHome";
 import { useHistory, useParams } from "react-router-dom";
 import ArticleCard from "../components/ArticleCard";
-import axios from "axios";
 // import ArticleCategoryPage from "./ArticleCategoryPage";
 
-export default function SearchArticlesPage() {
+export default function HomePage() {
   // const [articleCard, setArticleCard] = useState([]);
 
   const history = useHistory();
+
   const { searchtext } = useParams;
-  const [searchText, setSearchText] = useState(searchtext);
+
+  const [searchText, set_searchText] = useState(searchtext);
+
   const [searchState, setSearchState] = useState({ status: "idle" });
-  const [articleCard, setArticleCard] = useState([]);
 
   // const [articleState, setArticleState] = useState([]);
 
@@ -24,16 +25,13 @@ export default function SearchArticlesPage() {
       }
       setSearchState({ status: "searching" });
 
-      // encoding the string so special characters dont mess up the url
       const queryParam = encodeURIComponent(searchtext);
 
-      const response = await axios.get(
+      const data = await fetch(
         `https://my-json-server.typicode.com/Codaisseur/articles-comments-data/articles${queryParam}`
-      );
+      ).then((r) => r.json());
 
-      setSearchState("done");
-      console.log("Success!", response);
-      setSearchState(response.data);
+      setSearchState({ status: "done", data: data.Search });
     }
 
     fetchData();
@@ -45,17 +43,6 @@ export default function SearchArticlesPage() {
     history.push(`/SearchArticlesPage/${routeParam}`);
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await axios.get(
-        "https://my-json-server.typicode.com/Codaisseur/articles-comments-data/articles"
-      );
-
-      setArticleCard(response.data);
-    }
-    fetchData();
-  }, []);
-
   return (
     <div>
       <div>
@@ -65,26 +52,12 @@ export default function SearchArticlesPage() {
         <form onSubmit={navigateToSearch}>
           <input
             value={searchText}
-            onChange={(e) => setSearchText(e.target.value)}
+            onChange={(e) => set_searchText(e.target.value)}
           />
           <button type="submit">Search</button>
         </form>
         {searchState.status === "idle" && (
-          <div>
-            {!articleCard ? (
-              <h4>Loading</h4>
-            ) : (
-              articleCard.map((Article, index) => (
-                <ArticleCard
-                  key={index}
-                  title={Article.title}
-                  author={Article.author}
-                  categoryId={Article.categoryId}
-                  img={Article.imgUrl}
-                />
-              ))
-            )}
-          </div>
+          <p>Type in a search term and click "Search" to start...</p>
         )}
         {searchState.status === "searching" && <p>Searching...</p>}
         {searchState.status === "done" && (
@@ -98,7 +71,6 @@ export default function SearchArticlesPage() {
                       key={article.index}
                       title={article.title}
                       author={article.author}
-                      img={article.imgUrl}
                     />
                   ))}
                 </div>

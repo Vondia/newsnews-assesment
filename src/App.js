@@ -4,14 +4,16 @@ import HomePage from "./pages/HomePage";
 import SearchArticlesPage from "./pages/SearchArticlesPage";
 import ArticleCategoryPage from "./pages/ArticleCategoryPage";
 import ArticlePage from "./pages/ArticlePage";
-import NavBar from "./components/NavBar";
+// import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <NavBar></NavBar>
       <Switch>
-        <Route path="/searchArticles" component={SearchArticlesPage}></Route>
+        <Route
+          path="/searchArticlesPage/:searchtext?"
+          component={SearchArticlesPage}
+        ></Route>
         <Route
           path="/ArticleCategoryPage/:categoryId"
           component={ArticleCategoryPage}

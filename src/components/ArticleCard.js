@@ -18,7 +18,7 @@ export default function ArticleCard(props) {
       <Link to={`/ArticlePage/${props.id}`}>
         <button className="ArticleCard-body">Read this article</button>
       </Link>
-      <img src={props.imgUrl} alt="Nieuws plaatje" />
+      <p>{props.imgUrl}</p>
     </div>
   );
 }
