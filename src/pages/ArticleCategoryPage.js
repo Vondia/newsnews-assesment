@@ -31,14 +31,14 @@ export default function ArticleCategoryPage() {
           <h4>Loading</h4>
         ) : (
           <div>
-            {category.map((category) => {
+            {category.map((article, index) => {
               return (
                 <ArticleCard
-                  key={category.id}
-                  title={category.title}
-                  author={category.author}
-                  id={category.id}
-                  categoryId={category.categoryId}
+                  key={index}
+                  article={article}
+                  // title={article.title}
+                  // author={article.author}
+                  // img={article.imgUrl}
                 />
               );
             })}

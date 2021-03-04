@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function CommentSection() {
+export default function CommentSection(props) {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
 
@@ -19,6 +19,7 @@ export default function CommentSection() {
     if (!name || !comment) {
       window.alert("Please enter your name and comment.");
     } else {
+      props.onCreateNewComment(name, comment);
       setName("");
       setComment("");
     }

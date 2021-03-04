@@ -74,14 +74,13 @@ export default function SearchArticlesPage() {
             {!articleCard ? (
               <h4>Loading</h4>
             ) : (
-              articleCard.map((Article, index) => (
+              articleCard.map((article, index) => (
                 <ArticleCard
                   key={index}
-                  id={Article.id}
-                  title={Article.title}
-                  author={Article.author}
-                  categoryId={Article.categoryId}
-                  img={Article.imgUrl}
+                  article={article}
+                  // title={article.title}
+                  // author={article.author}
+                  // img={article.imgUrl}
                 />
               ))
             )}
@@ -97,9 +96,10 @@ export default function SearchArticlesPage() {
                   {searchState.data.map((article) => (
                     <ArticleCard
                       key={article.index}
-                      title={article.title}
-                      author={article.author}
-                      img={article.imgUrl}
+                      article={article}
+                      // title={article.title}
+                      // author={article.author}
+                      // img={article.imgUrl}
                     />
                   ))}
                 </div>

@@ -46,13 +46,9 @@ export default function HomePage() {
           articleCard.map((article, index) => (
             <ArticleCard
               key={index}
-              id={article.id}
-              props={article}
-              // key={index}
-              // id={article.id}
+              article={article}
               // title={article.title}
               // author={article.author}
-              // categoryId={article.categoryId}
               // img={article.imgUrl}
             />
           ))

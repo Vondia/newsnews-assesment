@@ -2,21 +2,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../style/ArticleCard.scss";
 
-export default function ArticleCard(props) {
-  return (
+export default function ArticleCard({ article }) {
+  return !article ? (
+    <p>Loading..</p>
+  ) : (
     <div className="ArticleCard card mb-3">
+      <img src={article.imgUrl} height="25px" alt="Nieuws plaatje" />
       <div>
-        <img src={props.imgUrl} height="100px" alt="Nieuws plaatje" />
-        <h3>{props.title}</h3>
-        <p>{props.author}</p>
+        <h3>{article.title}</h3>
+        <p>{article.author}</p>
         <p>
           Category:{" "}
-          <Link to={`/ArticleCategoryPage/${props.categoryId}`}>
-            <strong>{props.categoryId}</strong>
+          <Link to={`/ArticleCategoryPage/${article.categoryId}`}>
+            <strong>{article.categoryId}</strong>
           </Link>
         </p>
       </div>
-      <Link to={`/ArticlePage/${props.id}`}>
+      <Link to={`/ArticlePage/${article.id}`}>
         <button className="ArticleCard-body">Read this article</button>
       </Link>
     </div>

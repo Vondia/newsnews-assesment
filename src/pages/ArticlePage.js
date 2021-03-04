@@ -31,18 +31,14 @@ export default function ArticlePage() {
 
   // console.log(articleData.title);
 
-  const onCreateNewComment = (newCommentName) => {
-    // Now I have the name of the new player,
-    // we need to create a player object from this:
-
+  const onCreateNewComment = (newCommentName, userComment) => {
     const newComment = {
-      id: comments.length + 1,
       name: newCommentName,
-      comment: "",
+      comment: userComment,
     };
-    console.log("new comment ready??", newComment);
+    // console.log("new comment ready??", newComment);
 
-    const updatedComments = [...comments, newComment];
+    const updatedComments = [newComment, ...comments];
     setComments(updatedComments);
   };
 
