@@ -3,12 +3,10 @@ import LogoHome from "../components/LogoHome";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import ArticleCard from "../components/ArticleCard";
-import CommentSection from "../components/CommentSection";
 
 export default function ArticleCategoryPage() {
   const { categoryId } = useParams();
   const [category, setCategory] = useState([]);
-  const [comments, setComments] = useState(["All"]);
   console.log(categoryId);
 
   useEffect(() => {
@@ -18,37 +16,9 @@ export default function ArticleCategoryPage() {
       );
       setCategory(response.data);
     }
-    async function fetchCommentData() {
-      const response = await axios.get(
-        "https://my-json-server.typicode.com/Codaisseur/articles-comments-data/comments"
-      );
-      setComments(response.data);
-    }
 
     fetchData();
-    fetchCommentData();
   }, [categoryId]);
-
-  console.log(`"Comment check:" ${comments}`);
-
-  const CommentByCategory = comments.filter((Object) => {
-    if (comments === "All") {
-      return Object;
-    } else {
-      return comments === Object.id;
-    }
-  });
-
-  console.log(`"comment by category check:" ${CommentByCategory}`);
-
-  const onSubmitForm = (newCommentName) => {
-    const newComment = {
-      id: comments.length + 1,
-      name: newCommentName,
-      comment: "",
-    };
-    console.log(`"new comment ready?", ${newComment}`);
-  };
 
   return (
     <div>
@@ -75,7 +45,6 @@ export default function ArticleCategoryPage() {
           </div>
         )}
       </div>
-      <CommentSection onSubmitForm={onSubmitForm} />
     </div>
   );
 }

@@ -2,10 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LogoHome from "../components/LogoHome";
+import CommentSection from "../components/CommentSection";
 
 export default function ArticlePage() {
   const { id } = useParams();
   const [articleData, setArticleData] = useState();
+  const [comments, setComments] = useState();
 
   console.log(id);
 
@@ -16,10 +18,33 @@ export default function ArticlePage() {
       );
       setArticleData(response.data);
     };
+
+    async function fetchCommentData() {
+      const response = await axios.get(
+        `https://my-json-server.typicode.com/Codaisseur/articles-comments-data/articles/${id}/comments`
+      );
+      setComments(response.data);
+    }
     fetchData();
+    fetchCommentData();
   }, [id]);
 
   // console.log(articleData.title);
+
+  const onCreateNewComment = (newCommentName) => {
+    // Now I have the name of the new player,
+    // we need to create a player object from this:
+
+    const newComment = {
+      id: comments.length + 1,
+      name: newCommentName,
+      comment: "",
+    };
+    console.log("new comment ready??", newComment);
+
+    const updatedComments = [...comments, newComment];
+    setComments(updatedComments);
+  };
 
   return (
     <div>
@@ -39,6 +64,22 @@ export default function ArticlePage() {
       ) : (
         <p>Loading...</p>
       )}
+      <div>
+        <h4>comments:</h4>
+        {!comments ? (
+          <h5>Loading</h5>
+        ) : (
+          comments.map((comments) => {
+            return (
+              <div>
+                <p>name:{comments.name}</p>
+                <p>comment:{comments.comment}</p>
+              </div>
+            );
+          })
+        )}
+      </div>
+      <CommentSection onCreateNewComment={onCreateNewComment} />
     </div>
   );
 }
