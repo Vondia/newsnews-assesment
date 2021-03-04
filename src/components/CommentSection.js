@@ -7,15 +7,6 @@ export default function CommentSection(props) {
   const onSubmitForm = (event) => {
     event.preventDefault();
 
-    // const onSubmitForm = (newCommentName) => {
-    //     const newComment = {
-    //       id: comments.length + 1,
-    //       name: newCommentName,
-    //       comment: "",
-    //     };
-    //     console.log(`"new comment ready?", ${newComment}`);
-    //   };
-
     if (!name || !comment) {
       window.alert("Please enter your name and comment.");
     } else {

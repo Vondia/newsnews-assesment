@@ -7,7 +7,7 @@ export default function ArticleCard({ article }) {
     <p>Loading..</p>
   ) : (
     <div className="ArticleCard card mb-3">
-      <img src={article.imgUrl} height="25px" alt="Nieuws plaatje" />
+      <img src={article.imgUrl} height="25px" alt="article img" />
       <div>
         <h3>{article.title}</h3>
         <p>{article.author}</p>

@@ -17,7 +17,7 @@ export default function HomePage() {
         return article.unixTimeStamp === 1589068800;
       });
       setArticleCard([timeStampLatest]);
-      console.log(data);
+      // console.log(data);
     }
     fetchData();
   }, []);
@@ -26,10 +26,10 @@ export default function HomePage() {
   //   return article_b.compare_unixTimeStamp - article_a.compare_unixTimeStamp;
   // }
 
-  const articlesSorted = [...articleCard];
+  // const articlesSorted = [...articleCard];
 
-  const unixTimeStampOutput = articlesSorted.map((a) => a.unixTimeStamp);
-  console.log(unixTimeStampOutput);
+  // const unixTimeStampOutput = articlesSorted.map((a) => a.unixTimeStamp);
+  // console.log(unixTimeStampOutput);
 
   return (
     <div>

@@ -9,7 +9,7 @@ export default function ArticlePage() {
   const [articleData, setArticleData] = useState();
   const [comments, setComments] = useState();
 
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     const fetchData = async () => {

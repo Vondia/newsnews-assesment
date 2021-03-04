@@ -11,17 +11,17 @@ const unixTimeSTampOutput = articlesSorted.map((a) => a.unixTimeStamp); ---> htt
 
 ### Self assessment
 
-| Section                         | Max Points | Self | Evaluator |
-| ------------------------------- | ---------- | ---- | --------- |
-| 1 Navigation                    | 6          | 6/6  | 0/6       |
-| 2 Home page most recent article | 7          | 4/7  | 0/7       |
-| 3 Searching articles            | 15         | 6/15 | 0/15      |
-| 4 Article details               | 11         | 0/11 | 0/11      |
-| 5 Articles by category          | 4          | 0/4  | 0/4       |
-| 6 Express server                | 9          | 9/9  | 0/9       |
-| 7 Styling                       | 2          | 2/2  | 0/2       |
-| 8 Finishing up                  | 6          | 6/6  | 0/6       |
-| Total                           | 60         | 0/60 | 0/60      |
+| Section                         | Max Points | Self  | Evaluator |
+| ------------------------------- | ---------- | ----- | --------- |
+| 1 Navigation                    | 6          | 6/6   | 0/6       |
+| 2 Home page most recent article | 7          | 5/7   | 0/7       |
+| 3 Searching articles            | 15         | 7/15  | 0/15      |
+| 4 Article details               | 11         | 11/11 | 0/11      |
+| 5 Articles by category          | 4          | 4/4   | 0/4       |
+| 6 Express server                | 9          | 9/9   | 0/9       |
+| 7 Styling                       | 2          | 2/2   | 0/2       |
+| 8 Finishing up                  | 6          | 6/6   | 0/6       |
+| Total                           | 60         | 50/60 | 0/60      |
 
 | 1. Navigation - Criteria                                                   | Points |
 | -------------------------------------------------------------------------- | ------ |
@@ -39,13 +39,13 @@ const unixTimeSTampOutput = articlesSorted.map((a) => a.unixTimeStamp); ---> htt
 | A seperate component is used to display the article                                 | 1      |
 | The data is fetched from the api, not hardcoded                                     | 1      |
 | The article displayed is always the most recent article from the api, not hardcoded | 2 x    |
-| Clicking on the `Read this article button`, links to the `Article detail page`      | 1 x    |
+| Clicking on the `Read this article button`, links to the `Article detail page`      | 1      |
 | Clicking on the `categoryId`, links to the `Category page`                          | 1      |
 | Total                                                                               | 7      |
 
 | 3. Search Articles - Criteria                                                                             | Points |
 | --------------------------------------------------------------------------------------------------------- | ------ |
-| A list of articles is displayed with a title, author, image and categoryId                                | 1 x    |
+| A list of articles is displayed with a title, author, image and categoryId                                | 1      |
 | A component is reused to display the articles                                                             | 1      |
 | The data is fetched from the api, not hardcoded                                                           | 1      |
 | There is an input of type `search on the page`                                                            | 1      |
@@ -99,14 +99,14 @@ const unixTimeSTampOutput = articlesSorted.map((a) => a.unixTimeStamp); ---> htt
 
 | 7. Styling - Criteria                                                  | Points | Self | Evaluator |
 | ---------------------------------------------------------------------- | ------ | ---- | --------- |
-| Student has applied at least 5 style rules                             | 1      |      |           |
-| Styles are split up across at least 2 css files created by the student | 1      |      |           |
-| Total                                                                  | 2      |      |           |
+| Student has applied at least 5 style rules                             | 1      | 1    |           |
+| Styles are split up across at least 2 css files created by the student | 1      | 1    |           |
+| Total                                                                  | 2      | 2    |           |
 
 | 8. Finishing up - Criteria                                                       | Points | Self | Evaluator |
 | -------------------------------------------------------------------------------- | ------ | ---- | --------- |
-| Student performed an accurate self assessment (within 7 points of the evaluator) | 2      |      |           |
-| Student can reflect on their process by writing a reflection of ~200 words       | 2      |      |           |
-| Student has committed at least once per section                                  | 1      |      |           |
-| Student has pushed their repository using git                                    | 1      |      |           |
-| Total                                                                            | 6      |      |           |
+| Student performed an accurate self assessment (within 7 points of the evaluator) | 2      | 2    |           |
+| Student can reflect on their process by writing a reflection of ~200 words       | 2      | 2    |           |
+| Student has committed at least once per section                                  | 1      | 1    |           |
+| Student has pushed their repository using git                                    | 1      | 1    |           |
+| Total                                                                            | 6      | 6    |           |
