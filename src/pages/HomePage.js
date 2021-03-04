@@ -3,6 +3,7 @@ import LogoHome from "../components/LogoHome";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ArticleCard from "../components/ArticleCard";
+import "../style/HomePage.scss";
 
 export default function HomePage() {
   const [articleCard, setArticleCard] = useState([]);
